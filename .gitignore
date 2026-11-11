@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local env secrets (keep .env.example)
+.env.local
+frontend/.env.local

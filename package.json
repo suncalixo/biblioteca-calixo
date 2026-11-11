@@ -1,9 +1,8 @@
 {
-  "name": "biblioteca-calixo",
+  "name": "biblioteca-calixo-root",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
-    "install-all": "cd frontend && npm install"
+    "build": "cd frontend && npm install && npm run build"
   }
 }
