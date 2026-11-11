@@ -1,9 +1,9 @@
 {
   "name": "biblioteca-calixo",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "npm --prefix frontend run dev",
-    "build": "npm --prefix frontend install && npm --prefix frontend run build && node -e \"const fs=require('fs'); fs.cpSync('frontend/dist', 'dist', {recursive: true});\""
+    "build": "cd frontend && npm install && npm run build",
+    "install-all": "cd frontend && npm install"
   }
 }
