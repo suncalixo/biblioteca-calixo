@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  html.dark {
+    --bg-app: #0F172A;
+    --bg-sidebar: #0B0F17;
+    --bg-header: rgba(15, 23, 42, 0.92);
+    --bg-card: #1E293B;
+    --bg-card-hover: #243247;
+    --bg-subsurface: #0B0F17;
+    --bg-input: #0B0F17;
+    --border-color: #334155;
+    --border-subtle: rgba(51, 65, 85, 0.7);
+    --text-main: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --gold-primary: #D4AF37;
+    --gold-secondary: #C59B27;
+    --gold-text: #D4AF37;
+    --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+    --card-shadow-hover: 0 12px 28px -4px rgba(0, 0, 0, 0.45), 0 0 15px -3px rgba(212, 175, 55, 0.12);
+  }
+
+  html.light-theme {
+    --bg-app: #F1F5F9;
+    --bg-sidebar: #F8FAFC;
+    --bg-header: rgba(255, 255, 255, 0.95);
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #FFFFFF;
+    --bg-subsurface: #F8FAFC;
+    --bg-input: #F8FAFC;
+    --border-color: #E2E8F0;
+    --border-subtle: #E2E8F0;
+    --text-main: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --gold-primary: #B48A1E;
+    --gold-secondary: #9A7415;
+    --gold-text: #9A7415;
+    --card-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.06);
+    --card-shadow-hover: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 4px 10px -4px rgba(15, 23, 42, 0.06);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Serif & Typography */
+.font-serif-title {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Theme-Aware Layout & Surface Classes */
+.theme-app-bg {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+}
+
+.editorial-sidebar,
+.calixo-sidebar {
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  color: var(--text-main);
+  transition: background-color 0.25s ease, border-color 0.25s ease, width 0.3s ease;
+}
+
+.editorial-topbar,
+.calixo-topbar {
+  background: var(--bg-header);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.editorial-card,
+.calixo-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  box-shadow: var(--card-shadow);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover,
+.calixo-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.editorial-subsurface {
+  background-color: var(--bg-subsurface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.editorial-input {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.editorial-input::placeholder {
+  color: var(--text-muted);
+}
+
+.editorial-input:focus {
+  outline: none;
+  border-color: #D4AF37;
+}
+
+.text-theme-main {
+  color: var(--text-main);
+}
+
+.text-theme-secondary {
+  color: var(--text-secondary);
+}
+
+.text-theme-muted {
+  color: var(--text-muted);
+}
+
+.text-theme-gold {
+  color: var(--gold-text);
+}
+
+.border-theme {
+  border-color: var(--border-color);
+}
+
+/* Active Menu Item with left highlight border */
+.nav-item-active {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0.03) 100%);
+  color: var(--text-main);
+  font-weight: 700;
+  border-left: 3px solid #D4AF37;
+}
+
+html.light-theme .nav-item-active {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0.04) 100%);
+  color: #0F172A;
+  border-left: 3px solid #B48A1E;
+}
+
+/* Golden Accent Glow Button */
+.gold-glow-btn {
+  background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+  color: #0B0F17;
+  font-weight: 700;
+  box-shadow: 0 4px 14px -2px rgba(212, 175, 55, 0.3);
+}
+
+.gold-glow-btn:hover {
+  background: linear-gradient(135deg, #E2C258 0%, #D4AF37 100%);
+  box-shadow: 0 6px 20px -2px rgba(212, 175, 55, 0.45);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Print styles for Fiscal Invoices */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #factura-imprimible, #factura-imprimible * {
+    visibility: visible;
+  }
+  #factura-imprimible {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white !important;
+    color: black !important;
+  }
+}
